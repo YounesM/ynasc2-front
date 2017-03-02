@@ -10,6 +10,8 @@ import { AboutComponent } from './about/about.component';
 import {routes} from "./app.routes";
 import { NotFoundComponent } from './not-found/not-found.component';
 import {RouterModule} from "@angular/router";
+import { ThumbnailComponent } from './layouts/thumbnail/thumbnail.component';
+import { AsideComponent } from './layouts/aside/aside.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import {RouterModule} from "@angular/router";
     NavbarComponent,
     HomeComponent,
     AboutComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ThumbnailComponent,
+    AsideComponent
   ],
   imports: [
     BrowserModule,

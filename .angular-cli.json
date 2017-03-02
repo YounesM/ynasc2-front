@@ -21,7 +21,8 @@
       "styles": [
         "styles.css",
         "css/spinner.css",
-        "css/bootstrap.min.css"
+        "css/bootstrap.min.css",
+        "css/font-awesome.min.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

@@ -26,6 +26,8 @@ app-root:empty + .loading{
 
 .spinner img {
   display: block;
+  width: 64px;
+  height: 64px;
 }
 
 .dots{

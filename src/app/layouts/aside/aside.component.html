@@ -1,0 +1,17 @@
+<aside>
+  <div class="card social">
+    <h4>Social Media</h4>
+    <ul>
+      <li class="btn btn-default facebook"><a href="https://www.facebook.com/ynasc.net"><i class="fa fa-facebook fa-lg"></i></a></li>
+      <li class="btn btn-default twitter"><a href="#"><i class="fa fa-twitter fa-lg"></i></a></li>
+      <li class="btn btn-default google-plus"><a href="#"><i class="fa fa-google-plus fa-lg"></i></a></li>
+      <li class="btn btn-default github"><a href="#"><i class="fa fa-github fa-lg"></i></a></li>
+    </ul>
+  </div>
+  <div class="card ad">
+    <h4>Ad</h4>
+    <div *ngFor="let day of days">
+      <p *ngIf="day.watchedToday">True</p>
+    </div>
+  </div>
+</aside>
