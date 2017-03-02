@@ -7,8 +7,9 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
-import {routing} from "./app.routes";
+import {routes} from "./app.routes";
 import { NotFoundComponent } from './not-found/not-found.component';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
