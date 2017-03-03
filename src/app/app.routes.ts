@@ -1,7 +1,6 @@
 import {HomeComponent} from "./routes/home/home.component";
 import {AboutComponent} from "./routes/about/about.component";
 import {NotFoundComponent} from "./routes/not-found/not-found.component";
-import {ArticleComponent} from "./routes/article/article.component";
 
 export const routes = [
   //Non-lazy routes
