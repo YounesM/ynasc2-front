@@ -20,6 +20,12 @@ export class ThumbnailComponent implements OnInit {
     ]
   }
 
+  onClick(){
+    /*
+      Should send POST to article/:id/ and navigate to the route
+     */
+  }
+
   ngOnInit() {
   }
 

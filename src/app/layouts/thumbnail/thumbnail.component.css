@@ -4,6 +4,11 @@
   width: 300px;
 }
 
+.card:hover{
+  box-shadow: 0 0 10px #4e8b22;
+  cursor: pointer;
+}
+
 .content{
   padding: 10px;
 }

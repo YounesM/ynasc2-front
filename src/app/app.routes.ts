@@ -1,10 +1,13 @@
-import {HomeComponent} from "./home/home.component";
-import {AboutComponent} from "./about/about.component";
-import {NotFoundComponent} from "./not-found/not-found.component";
+import {HomeComponent} from "./routes/home/home.component";
+import {AboutComponent} from "./routes/about/about.component";
+import {NotFoundComponent} from "./routes/not-found/not-found.component";
+import {ArticleComponent} from "./routes/article/article.component";
 
 export const routes = [
-  {path: '', redirectTo:'/home', pathMatch: 'full'},
+  //Non-lazy routes
   {path: 'home', component: HomeComponent},
   {path: 'about', component: AboutComponent},
+  {path: 'article/:id/:title', component: ArticleComponent},
+  {path: '', redirectTo:'/home', pathMatch: 'full'},
   {path: '**', component: NotFoundComponent}
 ];
