@@ -1,3 +1,10 @@
-<p>
-  thumbnail works!
-</p>
+<div *ngFor="let thumbnail of thumbnails">
+  <article class="card">
+    <img [src]="thumbnail.img">
+    <div class="content">
+      <h4>{{thumbnail.title}}</h4>
+      <div>{{thumbnail.date | date: 'dd/MM/yyyy'}}</div>
+      <p>{{thumbnail.prev}}</p>
+    </div>
+  </article>
+</div>
