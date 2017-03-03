@@ -1,0 +1,25 @@
+<div class="card">
+  <h3>Contact</h3>
+  <form (ngSubmit)=onSubmit() #form="ngForm">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input id="title" minlength="6" type="text" pattern="^[A-Za-z0-9 ]*$" class="form-control" name="title" [(ngModel)]="title" required #titleVerif="ngModel">
+      <div *ngIf="titleVerif.errors && (titleVerif.dirty)" class="text-danger">
+        <div *ngIf="titleVerif.errors.minlength">
+          Your title must have at least 6 characters.
+        </div>
+        <div *ngIf="titleVerif.errors.pattern">
+          Your title must be alphanumeric.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input id="email" type="email" class="form-control" name="email" [(ngModel)]="email" required>
+    </div>
+    <div class="form-group">
+      <textarea placeholder="Message" class="form-control" name="content"></textarea>
+    </div>
+    <button class="btn btn-default" [disabled]="!form.valid">Submit</button>
+  </form>
+</div>

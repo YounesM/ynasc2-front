@@ -12,6 +12,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import {RouterModule} from "@angular/router";
 import { ThumbnailComponent } from './layouts/thumbnail/thumbnail.component';
 import { AsideComponent } from './layouts/aside/aside.component';
+import { AboutFormComponent } from './layouts/about-form/about-form.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AsideComponent } from './layouts/aside/aside.component';
     AboutComponent,
     NotFoundComponent,
     ThumbnailComponent,
-    AsideComponent
+    AsideComponent,
+    AboutFormComponent
   ],
   imports: [
     BrowserModule,
