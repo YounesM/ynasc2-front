@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import {HttpModule, RequestOptions, XHRBackend} from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
@@ -15,6 +15,8 @@ import { AsideComponent } from './layouts/aside/aside.component';
 import { AboutFormComponent } from './layouts/about-form/about-form.component';
 import { ArticleComponent } from './routes/article/article.component';
 import { ArticleModule } from "./routes/article/article.module";
+import {HttpInterceptorService} from "./services/http-interceptor.service";
+import {LoaderService} from "./services/loader.service";
 
 @NgModule({
   declarations: [
@@ -35,7 +37,16 @@ import { ArticleModule } from "./routes/article/article.module";
     RouterModule.forRoot(routes),
     ArticleModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HttpInterceptorService,
+      useFactory: (backend: XHRBackend, options: RequestOptions, loader: LoaderService) => {
+        return new HttpInterceptorService(backend, options, loader);
+        },
+      deps: [XHRBackend, RequestOptions, LoaderService]
+    },
+    LoaderService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

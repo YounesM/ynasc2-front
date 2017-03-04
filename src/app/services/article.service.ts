@@ -1,17 +1,22 @@
 import { Injectable } from '@angular/core';
-import {Http, Response} from "@angular/http";
-import {Observable} from "rxjs";
-import {Article} from "../model/article";
+import { Observable } from "rxjs";
+import { Article } from "../model/article";
 import 'rxjs/Rx';
+import {HttpInterceptorService} from "./http-interceptor.service";
 
 @Injectable()
 export class ArticleService {
   url: string = 'https://ynasc.ddns.net/api/articles';
 
-  constructor(private http : Http) { }
+  constructor(private http : HttpInterceptorService) { }
 
-  getArticles() : Observable<Article[]>{
-    return this.http.get(this.url)
+  getArticles(page?) : Observable<Article[]>{
+    return this.http.get(this.url, page)
       .map(res => <Article[]>res.json());
   }
+
+  postArticle(article) : Observable<any> {
+    return this.http.post(this.url, article);
+  }
+
 }
