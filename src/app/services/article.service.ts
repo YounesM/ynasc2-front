@@ -19,4 +19,10 @@ export class ArticleService {
     return this.http.post(this.url, article);
   }
 
+  getArticle(id) : Observable<any> {
+    const articleUrl = this.url + '/' + id;
+    return this.http.get(articleUrl)
+      .map(res => <Article>res.json())
+  }
+
 }

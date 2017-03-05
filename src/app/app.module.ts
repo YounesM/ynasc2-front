@@ -17,6 +17,7 @@ import { ArticleComponent } from './routes/article/article.component';
 import { ArticleModule } from "./routes/article/article.module";
 import {HttpInterceptorService} from "./services/http-interceptor.service";
 import {LoaderService} from "./services/loader.service";
+import {SharedService} from "./services/shared.service";
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {LoaderService} from "./services/loader.service";
         },
       deps: [XHRBackend, RequestOptions, LoaderService]
     },
-    LoaderService
+    LoaderService,
+    SharedService
   ],
   bootstrap: [AppComponent]
 })

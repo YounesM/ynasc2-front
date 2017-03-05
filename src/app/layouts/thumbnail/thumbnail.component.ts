@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ArticleService} from "../../services/article.service";
+import {SharedService} from "../../services/shared.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-thumbnail',
@@ -10,14 +12,16 @@ import {ArticleService} from "../../services/article.service";
 export class ThumbnailComponent implements OnInit {
   thumbnails: any[];
 
-  constructor(private articleSrv: ArticleService) {
+  constructor(private articleSrv: ArticleService,
+              public sharedSrv: SharedService,
+              private router: Router) { }
 
-  }
-
-  onClick(){
+  onClick(article){
     /*
-      Should send POST to article/:id/ and navigate to the route
+      Should send POST to article/:id/:title and navigate to the route
      */
+    this.sharedSrv.setClickedArticle(article.id);
+    this.router.navigate(['article',article.id, article.urlTitle])
   }
 
   ngOnInit() {
