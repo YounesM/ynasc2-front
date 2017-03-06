@@ -1,0 +1,11 @@
+<div class="card login-form">
+  <form (ngSubmit)=onSubmit()>
+    <div class="form-group">
+      <label for="login">Login</label>
+      <input id="login" class="form-control" name="login" type="text" [(ngModel)]="login">
+      <label for="password">Password</label>
+      <input id="password" class="form-control" name="password" type="password" [(ngModel)]="password">
+    </div>
+    <button class="btn btn-default">Submit</button>
+  </form>
+</div>

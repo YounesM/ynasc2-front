@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {HttpModule, RequestOptions, XHRBackend} from '@angular/http';
+import { HttpModule, RequestOptions, XHRBackend } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
@@ -15,10 +15,12 @@ import { AsideComponent } from './layouts/aside/aside.component';
 import { AboutFormComponent } from './layouts/about-form/about-form.component';
 import { ArticleComponent } from './routes/article/article.component';
 import { ArticleModule } from "./routes/article/article.module";
-import {HttpInterceptorService} from "./services/http-interceptor.service";
-import {SharedService} from "./services/shared.service";
+import { HttpInterceptorService } from "./services/http-interceptor.service";
+import { SharedService } from "./services/shared.service";
 import { PreloaderComponent } from './layouts/preloader/preloader.component';
-import {PreloaderService} from "./services/preloader.service";
+import { PreloaderService } from "./services/preloader.service";
+import { LoginComponent } from './routes/login/login.component';
+import { LoginFormComponent } from './layouts/login-form/login-form.component';
 
 export function httpInterceptorFactory(backend: XHRBackend, defaultOptions: RequestOptions, preLoaderSrv: PreloaderService) {
   return new HttpInterceptorService(backend, defaultOptions, preLoaderSrv);
@@ -35,7 +37,9 @@ export function httpInterceptorFactory(backend: XHRBackend, defaultOptions: Requ
     AsideComponent,
     AboutFormComponent,
     ArticleComponent,
-    PreloaderComponent
+    PreloaderComponent,
+    LoginComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
