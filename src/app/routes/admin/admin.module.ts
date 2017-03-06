@@ -3,13 +3,22 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {Routes, RouterModule} from "@angular/router";
 import {LoginComponent} from "./login/login.component";
+import {AuthGuardService} from "../../services/auth-guard.service";
+import {AdminComponent} from "./admin.component";
 
 const adminRoutes : Routes = [
   {
     path: 'admin',
+    component: AdminComponent,
+    canActivate: [ AuthGuardService ],
     children : [
-      { path: '', component: LoginComponent},
-      { path: 'dashboard', component: DashboardComponent}
+      {
+        path: '',
+        children: [
+          { path: '', component: LoginComponent},
+          { path: 'dashboard', component: DashboardComponent }
+        ]
+      }
     ]
   }
 ];
@@ -22,6 +31,7 @@ const adminRoutes : Routes = [
   exports: [
     RouterModule
   ],
-  declarations: [DashboardComponent]
+  declarations: [DashboardComponent],
+  providers: [AuthGuardService]
 })
 export class AdminModule { }
