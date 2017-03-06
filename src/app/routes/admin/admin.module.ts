@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import {Routes, RouterModule} from "@angular/router";
-import {LoginComponent} from "./login/login.component";
-import {AuthGuardService} from "../../services/auth-guard.service";
-import {AdminComponent} from "./admin.component";
+import { Routes, RouterModule } from "@angular/router";
+import { AuthGuardService } from "../../services/auth-guard.service";
+import { AdminComponent } from "./admin.component";
+import { LoginService } from "../../services/login.service";
 
 const adminRoutes : Routes = [
   {
@@ -14,9 +14,10 @@ const adminRoutes : Routes = [
     children : [
       {
         path: '',
+        canActivateChild: [ AuthGuardService ],
         children: [
-          { path: '', component: LoginComponent},
-          { path: 'dashboard', component: DashboardComponent }
+          { path: 'edit', component: DashboardComponent },
+          { path: '', component: DashboardComponent }
         ]
       }
     ]
@@ -32,6 +33,6 @@ const adminRoutes : Routes = [
     RouterModule
   ],
   declarations: [DashboardComponent],
-  providers: [AuthGuardService]
+  providers: [ AuthGuardService, LoginService]
 })
 export class AdminModule { }
