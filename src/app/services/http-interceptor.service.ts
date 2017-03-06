@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Http, ConnectionBackend, RequestOptions, RequestOptionsArgs, Response, Request} from "@angular/http";
-import {LoaderService} from "./loader.service";
 import {Observable} from "rxjs";
+import {PreloaderService} from "./preloader.service";
 
 @Injectable()
 export class HttpInterceptorService extends Http {
@@ -9,7 +9,7 @@ export class HttpInterceptorService extends Http {
   constructor(
     backend: ConnectionBackend,
     defaultOption: RequestOptions,
-    private loaderSrv: LoaderService
+    private preloaderSrv: PreloaderService
   ) {
     super(backend, defaultOption);
   }
@@ -20,8 +20,9 @@ export class HttpInterceptorService extends Http {
 
   get(url: string, option?: RequestOptionsArgs): Observable<any> {
     //do something
-    console.log('Interceptor is working');
+    this.preloaderSrv.showPreloader();
     return super.get(url, option)
+      .finally(() => { this.preloaderSrv.hidePreloader() });
   }
 
   post(url: string, body: any, options?:RequestOptionsArgs): Observable<Response> {

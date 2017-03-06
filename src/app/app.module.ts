@@ -16,8 +16,13 @@ import { AboutFormComponent } from './layouts/about-form/about-form.component';
 import { ArticleComponent } from './routes/article/article.component';
 import { ArticleModule } from "./routes/article/article.module";
 import {HttpInterceptorService} from "./services/http-interceptor.service";
-import {LoaderService} from "./services/loader.service";
 import {SharedService} from "./services/shared.service";
+import { PreloaderComponent } from './layouts/preloader/preloader.component';
+import {PreloaderService} from "./services/preloader.service";
+
+export function httpInterceptorFactory(backend: XHRBackend, defaultOptions: RequestOptions, preLoaderSrv: PreloaderService) {
+  return new HttpInterceptorService(backend, defaultOptions, preLoaderSrv);
+}
 
 @NgModule({
   declarations: [
@@ -29,7 +34,8 @@ import {SharedService} from "./services/shared.service";
     ThumbnailComponent,
     AsideComponent,
     AboutFormComponent,
-    ArticleComponent
+    ArticleComponent,
+    PreloaderComponent
   ],
   imports: [
     BrowserModule,
@@ -41,12 +47,10 @@ import {SharedService} from "./services/shared.service";
   providers: [
     {
       provide: HttpInterceptorService,
-      useFactory: (backend: XHRBackend, options: RequestOptions, loader: LoaderService) => {
-        return new HttpInterceptorService(backend, options, loader);
-        },
-      deps: [XHRBackend, RequestOptions, LoaderService]
+      useFactory: httpInterceptorFactory,
+      deps: [XHRBackend, RequestOptions, PreloaderService]
     },
-    LoaderService,
+    PreloaderService,
     SharedService
   ],
   bootstrap: [AppComponent]
