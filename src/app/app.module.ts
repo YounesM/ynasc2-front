@@ -19,8 +19,10 @@ import { HttpInterceptorService } from "./services/http-interceptor.service";
 import { SharedService } from "./services/shared.service";
 import { PreloaderComponent } from './layouts/preloader/preloader.component';
 import { PreloaderService } from "./services/preloader.service";
-import { LoginComponent } from './routes/login/login.component';
+import { LoginComponent } from './routes/admin/login/login.component';
 import { LoginFormComponent } from './layouts/login-form/login-form.component';
+import { AdminComponent } from './routes/admin/admin.component';
+import {AdminModule} from "./routes/admin/admin.module";
 
 export function httpInterceptorFactory(backend: XHRBackend, defaultOptions: RequestOptions, preLoaderSrv: PreloaderService) {
   return new HttpInterceptorService(backend, defaultOptions, preLoaderSrv);
@@ -39,14 +41,16 @@ export function httpInterceptorFactory(backend: XHRBackend, defaultOptions: Requ
     ArticleComponent,
     PreloaderComponent,
     LoginComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    ArticleModule
+    ArticleModule,
+    AdminModule
   ],
   providers: [
     {

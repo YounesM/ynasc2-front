@@ -25,7 +25,7 @@ export class LoginFormComponent implements OnInit {
       res => {
         if (res.success){
           localStorage.setItem('login', JSON.stringify(res));
-          this.router.navigate(['admin/home']);
+          this.router.navigate(['admin/dashboard']);
         } else {
           this.message = 'Wrong login or password'
         }

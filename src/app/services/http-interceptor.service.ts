@@ -19,16 +19,16 @@ export class HttpInterceptorService extends Http {
   }
 
   get(url: string, option?: RequestOptionsArgs): Observable<any> {
-    //do something
     this.preloaderSrv.showPreloader();
     return super.get(url, option)
       .finally(() => { this.preloaderSrv.hidePreloader() });
   }
 
   post(url: string, body: any, options?:RequestOptionsArgs): Observable<Response> {
-    //do something
+    this.preloaderSrv.showPreloader();
     console.log('Posting to the backend');
-    return super.post(url, body, options);
+    return super.post(url, body, options)
+      .finally(() => { this.preloaderSrv.hidePreloader() });
   }
 
 
