@@ -25,4 +25,9 @@ export class ArticleService {
       .map(res => <Article>res.json())
   }
 
+  getLastArticles() : Observable<any> {
+    return this.http.get(this.url+'/top')
+      .map(res => res.json());
+  }
+
 }
