@@ -16,14 +16,14 @@ import { AboutFormComponent } from './layouts/about-form/about-form.component';
 import { ArticleComponent } from './routes/article/article.component';
 import { ArticleModule } from "./routes/article/article.module";
 import { HttpInterceptorService } from "./services/http-interceptor.service";
-import { SharedService } from "./services/shared.service";
-import { PreloaderComponent } from './layouts/preloader/preloader.component';
+import { SharedService } from "./shared/shared.service";
 import { PreloaderService } from "./services/preloader.service";
 import { LoginComponent } from './routes/admin/login/login.component';
 import { LoginFormComponent } from './layouts/login-form/login-form.component';
 import { AdminComponent } from './routes/admin/admin.component';
-import {AdminModule} from "./routes/admin/admin.module";
+import { AdminModule } from "./routes/admin/admin.module";
 import { AdminNavComponent } from './layouts/admin/admin-nav/admin-nav.component';
+import { SharedModule } from "./shared/shared.module";
 
 export function httpInterceptorFactory(backend: XHRBackend, defaultOptions: RequestOptions, preLoaderSrv: PreloaderService) {
   return new HttpInterceptorService(backend, defaultOptions, preLoaderSrv);
@@ -40,7 +40,6 @@ export function httpInterceptorFactory(backend: XHRBackend, defaultOptions: Requ
     AsideComponent,
     AboutFormComponent,
     ArticleComponent,
-    PreloaderComponent,
     LoginComponent,
     LoginFormComponent,
     AdminComponent,
@@ -52,7 +51,8 @@ export function httpInterceptorFactory(backend: XHRBackend, defaultOptions: Requ
     HttpModule,
     RouterModule.forRoot(routes),
     ArticleModule,
-    AdminModule
+    AdminModule,
+    SharedModule
   ],
   providers: [
     {

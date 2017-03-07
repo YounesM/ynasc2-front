@@ -20,7 +20,7 @@ app-root:empty + .loading{
 
 .spinner{
   position: absolute;
-  top: 50%;
+  top: calc(50% - 50px);
   left:calc(50% - 32px);
 }
 

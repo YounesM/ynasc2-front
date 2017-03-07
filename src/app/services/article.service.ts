@@ -6,12 +6,12 @@ import {HttpInterceptorService} from "./http-interceptor.service";
 
 @Injectable()
 export class ArticleService {
-  url: string = 'api/articles';
+  url: string = 'api/article';
 
   constructor(private http : HttpInterceptorService) { }
 
   getArticles(page?) : Observable<Article[]>{
-    return this.http.get(this.url, page)
+    return this.http.get(this.url+'s', page)
       .map(res => <Article[]>res.json());
   }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ArticleService} from "../../services/article.service";
-import {SharedService} from "../../services/shared.service";
+import {SharedService} from "../../shared/shared.service";
 
 @Component({
   selector: 'app-article',

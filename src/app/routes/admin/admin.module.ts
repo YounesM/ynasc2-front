@@ -5,6 +5,8 @@ import { Routes, RouterModule } from "@angular/router";
 import { AuthGuardService } from "../../services/auth-guard.service";
 import { AdminComponent } from "./admin.component";
 import { LoginService } from "../../services/login.service";
+import {LastArticlesComponent} from "../../layouts/admin/dashboard/last-articles/last-articles.component";
+import {SharedModule} from "../../shared/shared.module";
 
 const adminRoutes : Routes = [
   {
@@ -44,11 +46,12 @@ const adminRoutes : Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(adminRoutes),
+    SharedModule
   ],
   exports: [
     RouterModule
   ],
-  declarations: [DashboardComponent],
+  declarations: [DashboardComponent, LastArticlesComponent],
   providers: [ AuthGuardService, LoginService]
 })
 export class AdminModule { }
