@@ -3,5 +3,9 @@
 }
 
 .nav-shadow{
-  box-shadow: 0 2px #295115;
+  border-bottom: 2px solid #006165;
+}
+
+nav{
+  background: #f1f1f1;
 }

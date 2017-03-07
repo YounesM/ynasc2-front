@@ -23,6 +23,7 @@ import { LoginComponent } from './routes/admin/login/login.component';
 import { LoginFormComponent } from './layouts/login-form/login-form.component';
 import { AdminComponent } from './routes/admin/admin.component';
 import {AdminModule} from "./routes/admin/admin.module";
+import { AdminNavComponent } from './layouts/admin/admin-nav/admin-nav.component';
 
 export function httpInterceptorFactory(backend: XHRBackend, defaultOptions: RequestOptions, preLoaderSrv: PreloaderService) {
   return new HttpInterceptorService(backend, defaultOptions, preLoaderSrv);
@@ -42,7 +43,8 @@ export function httpInterceptorFactory(backend: XHRBackend, defaultOptions: Requ
     PreloaderComponent,
     LoginComponent,
     LoginFormComponent,
-    AdminComponent
+    AdminComponent,
+    AdminNavComponent
   ],
   imports: [
     BrowserModule,
