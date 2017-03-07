@@ -1,0 +1,19 @@
+<h2>Top 5 views</h2>
+<app-preloader></app-preloader>
+<table *ngIf="top" class="table table-striped">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Comments</th>
+    <th>Views</th>
+    <th>GoTo</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let article of top">
+    <td>{{article.title}}</td>
+    <td>{{article.comments}}</td>
+    <td>{{article.views}}</td>
+  </tr>
+  </tbody>
+</table>

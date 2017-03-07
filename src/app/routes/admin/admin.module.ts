@@ -7,6 +7,7 @@ import { AdminComponent } from "./admin.component";
 import { LoginService } from "../../services/login.service";
 import {LastArticlesComponent} from "../../layouts/admin/dashboard/last-articles/last-articles.component";
 import {SharedModule} from "../../shared/shared.module";
+import {TopArticlesComponent} from "../../layouts/admin/dashboard/top-articles/top-articles.component";
 
 const adminRoutes : Routes = [
   {
@@ -51,7 +52,7 @@ const adminRoutes : Routes = [
   exports: [
     RouterModule
   ],
-  declarations: [DashboardComponent, LastArticlesComponent],
+  declarations: [DashboardComponent, LastArticlesComponent, TopArticlesComponent],
   providers: [ AuthGuardService, LoginService]
 })
 export class AdminModule { }

@@ -26,7 +26,12 @@ export class ArticleService {
   }
 
   getLastArticles() : Observable<any> {
-    return this.http.get(this.url+'/top')
+    return this.http.get(this.url+'s'+'/last')
+      .map(res => res.json());
+  }
+
+  getTopArticles() : Observable<any> {
+    return this.http.get(this.url+'s' +'/top')
       .map(res => res.json());
   }
 
