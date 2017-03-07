@@ -16,7 +16,7 @@ const adminRoutes : Routes = [
         path: '',
         canActivateChild: [ AuthGuardService ],
         children: [
-          { path: 'edit', component: DashboardComponent },
+          { path: '', component: DashboardComponent },
           { path: '', component: DashboardComponent }
         ]
       }
