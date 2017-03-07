@@ -19,8 +19,6 @@ export class LoginFormComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.login + this.password);
-
     this.loginSrv.login(this.login, this.password).subscribe(
       res => {
         if (res.success){

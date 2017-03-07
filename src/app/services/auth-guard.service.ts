@@ -7,12 +7,10 @@ export class AuthGuardService implements CanActivate{
   constructor(private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
-    console.log("Guard is guarding");
     return this.sessionValid();
   }
 
   canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
-    console.log("Children guarding ...");
     return this.canActivate(route, state);
   }
 

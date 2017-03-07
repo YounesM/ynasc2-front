@@ -26,7 +26,6 @@ export class HttpInterceptorService extends Http {
 
   post(url: string, body: any, options?:RequestOptionsArgs): Observable<Response> {
     this.preloaderSrv.showPreloader();
-    console.log('Posting to the backend');
     return super.post(url, body, options)
       .finally(() => { this.preloaderSrv.hidePreloader() });
   }
