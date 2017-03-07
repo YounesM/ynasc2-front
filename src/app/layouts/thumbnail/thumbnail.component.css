@@ -1,14 +1,18 @@
 .card{
   padding:0;
-  margin: 10px 5px 5px 0;
-  width: 300px;
+  margin: 10px auto 5px auto;
+  width: 100%;
+  max-width: 1000px;
 }
 
 .card:hover{
-  box-shadow: 0 0 10px #4e8b22;
   cursor: pointer;
 }
 
 .content{
   padding: 10px;
+}
+
+.thumbnails{
+  width: 100%;
 }

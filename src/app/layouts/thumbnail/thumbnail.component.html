@@ -1,10 +1,11 @@
-<div *ngFor="let thumbnail of thumbnails">
+<div *ngFor="let thumbnail of thumbnails" class="thumbnails">
   <article class="card" (click)="onClick(thumbnail)">
     <img [src]="thumbnail.img">
     <div class="content">
       <h4>{{thumbnail.title}}</h4>
       <div>{{thumbnail.date*1000 | date: 'dd/MM/yyyy HH:mm'}}</div>
       <p>{{thumbnail.prev}}</p>
+      <button class="btn btn-default">Read more</button>
     </div>
   </article>
 </div>
