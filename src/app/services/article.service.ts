@@ -6,7 +6,7 @@ import {HttpInterceptorService} from "./http-interceptor.service";
 
 @Injectable()
 export class ArticleService {
-  url: string = 'https://ynasc.ddns.net/api/articles';
+  url: string = 'api/articles';
 
   constructor(private http : HttpInterceptorService) { }
 
