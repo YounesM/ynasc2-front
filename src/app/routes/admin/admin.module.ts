@@ -8,6 +8,9 @@ import { LoginService } from "../../services/login.service";
 import {LastArticlesComponent} from "../../layouts/admin/dashboard/last-articles/last-articles.component";
 import {SharedModule} from "../../shared/shared.module";
 import {TopArticlesComponent} from "../../layouts/admin/dashboard/top-articles/top-articles.component";
+import {PostsManageComponent} from "../../layouts/admin/posts-manage/posts-manage.component";
+import {PostFormComponent} from "../../layouts/admin/post-form/post-form.component";
+import { PostsComponent } from './posts/posts.component';
 
 const adminRoutes : Routes = [
   {
@@ -31,9 +34,10 @@ const adminRoutes : Routes = [
           },
           {
             path: 'posts',
+            component : PostsComponent,
             children: [
-              { path: 'new', component: DashboardComponent },
-              { path: 'manage', component: DashboardComponent },
+              { path: 'new', component: PostFormComponent },
+              { path: 'manage', component: PostsManageComponent },
               { path: 'manage/:id', component: DashboardComponent }
             ]
           }
@@ -52,7 +56,14 @@ const adminRoutes : Routes = [
   exports: [
     RouterModule
   ],
-  declarations: [DashboardComponent, LastArticlesComponent, TopArticlesComponent],
+  declarations: [
+    DashboardComponent,
+    LastArticlesComponent,
+    TopArticlesComponent,
+    PostsManageComponent,
+    PostFormComponent,
+    PostsComponent
+  ],
   providers: [ AuthGuardService, LoginService]
 })
 export class AdminModule { }

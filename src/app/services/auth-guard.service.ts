@@ -17,7 +17,6 @@ export class AuthGuardService implements CanActivate{
 
   sessionValid() : boolean {
     let session = JSON.parse(localStorage.getItem('login'));
-    console.log(session && session.token)
     if (session && session.token) {
       this.loginSrv.checkValidity().subscribe(
         data => {
