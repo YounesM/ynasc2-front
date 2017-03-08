@@ -13,7 +13,7 @@ export class AdminNavComponent implements OnInit {
   constructor(private loginSrv: LoginService) { }
 
   ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem('login')).login;
+    JSON.parse(localStorage.getItem('login')) ? this.user = JSON.parse(localStorage.getItem('login')).login : 0;
   }
 
   logout(){

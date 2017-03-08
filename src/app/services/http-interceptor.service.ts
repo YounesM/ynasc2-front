@@ -33,8 +33,10 @@ export class HttpInterceptorService extends Http {
   }
 
   setTokenHeader() : Headers {
-    let token = JSON.parse(localStorage.getItem('login')).token;
     let header = new Headers();
+    let token;
+
+    JSON.parse(localStorage.getItem('login')) ? token = JSON.parse(localStorage.getItem('login')).token : null;
 
     if(token){
       console.log(token);
