@@ -3,6 +3,7 @@ import { Observable } from "rxjs";
 import { Article } from "../model/article";
 import 'rxjs/Rx';
 import {HttpInterceptorService} from "./http-interceptor.service";
+import {Headers} from "@angular/http";
 
 @Injectable()
 export class ArticleService {
@@ -16,7 +17,8 @@ export class ArticleService {
   }
 
   postArticle(article) : Observable<any> {
-    return this.http.post(this.url, article);
+    return this.http.post(this.url, article, { headers : this.http.setTokenHeader()})
+      .map(res => res.json());
   }
 
   getArticle(id) : Observable<any> {
@@ -26,12 +28,12 @@ export class ArticleService {
   }
 
   getLastArticles() : Observable<any> {
-    return this.http.get(this.url+'s'+'/last')
+    return this.http.get(this.url+'s'+'/last', { headers : this.http.setTokenHeader()})
       .map(res => res.json());
   }
 
   getTopArticles() : Observable<any> {
-    return this.http.get(this.url+'s' +'/top')
+    return this.http.get(this.url+'s' +'/top', { headers : this.http.setTokenHeader()})
       .map(res => res.json());
   }
 

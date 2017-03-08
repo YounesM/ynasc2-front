@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Http, ConnectionBackend, RequestOptions, RequestOptionsArgs, Response, Request} from "@angular/http";
+import {Http, ConnectionBackend, RequestOptions, RequestOptionsArgs, Response, Request, Headers} from "@angular/http";
 import {Observable} from "rxjs";
 import {PreloaderService} from "./preloader.service";
 import {AppConstants} from "../app.constants";
@@ -30,5 +30,17 @@ export class HttpInterceptorService extends Http {
     this.preloaderSrv.showPreloader();
     return super.post(this.domain + url, body, options)
       .finally(() => { this.preloaderSrv.hidePreloader() });
+  }
+
+  setTokenHeader() : Headers {
+    let token = JSON.parse(localStorage.getItem('login')).token;
+    let header = new Headers();
+
+    if(token){
+      console.log(token);
+      header.append('x-auth-token',token);
+    }
+
+    return header;
   }
 }

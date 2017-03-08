@@ -22,7 +22,7 @@ export class LoginService {
 
   checkValidity() : Observable<any>{
     let token = JSON.parse(localStorage.getItem('login'));
-    return this.http.post(this.url+'/validity',token)
+    return this.http.post(this.url+'/validity',token, { headers: this.http.setTokenHeader()})
       .map(res => res.json());
   }
 
