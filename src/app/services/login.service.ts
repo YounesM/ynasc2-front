@@ -20,4 +20,10 @@ export class LoginService {
     this.router.navigate(['/login']);
   }
 
+  checkValidity() : Observable<any>{
+    let token = JSON.parse(localStorage.getItem('login'));
+    return this.http.post(this.url+'/validity',token)
+      .map(res => res.json());
+  }
+
 }

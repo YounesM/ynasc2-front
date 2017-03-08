@@ -21,7 +21,7 @@ export class LoginFormComponent implements OnInit {
   onSubmit(){
     this.loginSrv.login(this.login, this.password).subscribe(
       res => {
-        if (res.success){
+        if (res.token){
           localStorage.setItem('login', JSON.stringify(res));
           this.router.navigate(['admin']);
         } else {
